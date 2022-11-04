@@ -77,11 +77,9 @@
         mounted() {
           // 初始化商品數量
           // this.product.map(this.count.push(0));
-
           // for( const key in this.product){
           //   this.count.push(0)
           // }
-
           /* this.product.map((item) => {
             this.count.push({
               id: item.id,
@@ -105,10 +103,14 @@
             // this.total += this.count[0] * this.product[0]['price']
             // this.total += this.count[1] * this.product[1]['price']
 
-            for (countIndex in this.count) {
+            for (const countIndex in this.count) {
               this.total +=
                 this.count[countIndex] * this.product[countIndex]["price"];
             }
+
+            // 正整數
+            this.total = parseInt(this.total);
+
             // this.total = this.count * this.price;
             // this.count.map((item,index) => {
             //   // item: 商品數量

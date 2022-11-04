@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-for="num in 9" :key="num" @click="keyin = num">{{num}}</button>
+      <button @click="keyin = 0">0</button>
+      <br>
+      <button @click="reduceCount">-</button>
+      <button @click="addCount">+</button>
+      <button @click="calc">=</button>
+      <button @click="clear"></button>
+      <div>
+        {{step}}
+      </div>
+      <h6>{{result}}</h6>
+      <!-- <h1>{{title}}</h1>
+      <h6>{{price}}元</h6>
+      <div>
+        <button @click="reduceCount">-</button>
+        <input type="text" v-model.number="count" />
+        <button @click="addCount">+</button>
+      </div>
+      <button>Add</button>
+      <p>{{total}}</p> -->
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            step:'',
+            result: 0,
+            keyin: 0
+          };
+        },
+
+        methods: {
+          add() {
+            this.count += 1;
+            this.sumTotal();
+          },
+          reduce() {
+            if (this.count <= 0) return;
+            this.count -= 1;
+            this.sumTotal();
+          },
+          calc() {
+            this.total = this.count * this.price;
+          },
+          clear(){
+            this.result = 0
+          }
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
